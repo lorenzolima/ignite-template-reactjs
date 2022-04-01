@@ -18,7 +18,14 @@ export function TaskList() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
     if(!newTaskTitle) return;
     
-    let newId = Math.floor(Math.random() * 2000)
+    var newId = Math.floor(Math.random() * 2000)
+
+    tasks.forEach(task => {
+      if (task.id == newId) {
+        handleCreateNewTask();
+      }
+    })
+    /* Above, I made a verifier, to verify if an id already exist */
 
     const newTask: Task = {
       id: newId,
